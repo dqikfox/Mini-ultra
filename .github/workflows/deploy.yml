@@ -1,0 +1,26 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: |
+          docker build -f deployment/Dockerfile -t mini-ultra:latest .
+
+      - name: Test Docker image
+        run: |
+          docker run --rm mini-ultra:latest python -c "from agent_core import MiniUltraAgent; print('OK')"
+
+      # Add your deployment steps here:
+      # - Push to Docker Hub / ECR / GCR
+      # - Deploy to cloud provider
+      # - Update Kubernetes deployment

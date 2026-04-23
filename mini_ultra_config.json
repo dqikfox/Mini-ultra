@@ -1,0 +1,36 @@
+{
+  "agent_name": "Mini-Ultra",
+  "version": "1.0.0",
+  "llm": {
+    "provider": "ollama",
+    "ollama_base_url": "http://localhost:11434",
+    "ollama_model": "llama3.2:latest",
+    "openai_api_key": "",
+    "openai_model": "gpt-4.1-mini",
+    "openai_base_url": "https://api.openai.com/v1",
+    "temperature": 0.7,
+    "max_tokens": 2000,
+    "timeout": 30
+  },
+  "features": {
+    "voice_enabled": false,
+    "vision_enabled": false,
+    "memory_enabled": true,
+    "tools_enabled": true
+  },
+  "server": {
+    "api_host": "0.0.0.0",
+    "api_port": 5000,
+    "web_host": "0.0.0.0",
+    "web_port": 8080
+  },
+  "memory": {
+    "max_items": 1000,
+    "persist_path": "data/memory.json"
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "logs/mini_ultra.log"
+  },
+  "debug": false
+}
